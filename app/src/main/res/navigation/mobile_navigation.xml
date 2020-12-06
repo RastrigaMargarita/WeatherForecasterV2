@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_weather">
+
+    <fragment
+        android:id="@+id/nav_weather"
+        android:name="com.margretcraft.weatherforecasterv2.ui.weatherUI.WeatherFragment"
+        android:label="@string/menu_weather"
+        tools:layout="@layout/fragment_weather" />
+
+    <fragment
+        android:id="@+id/nav_forecast"
+        android:name="com.margretcraft.weatherforecasterv2.ui.weatherUI.ForecastFragment"
+        android:label="@string/menu_forecast"
+        tools:layout="@layout/fragment_town" />
+
+    <fragment
+        android:id="@+id/nav_town"
+        android:name="com.margretcraft.weatherforecasterv2.ui.townUI.TownFragment"
+        android:label="@string/menu_town"
+        tools:layout="@layout/fragment_town" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.margretcraft.weatherforecasterv2.ui.settingsUI.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

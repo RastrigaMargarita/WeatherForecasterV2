@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navigation_drawer_open">Открыть меню навигации</string>
+    <string name="navigation_drawer_close">Закрыть меню навигации</string>
+    <string name="menu_weather">Погода</string>
+
+    <string name="app_name">Предсказатель погоды</string>
+    <string name="weatherpicture" translatable="false">Картинка погоды</string>
+    <string name="Moscow" translatable="false">Россия Москва</string>
+    <string name="direction">Направление ветра</string>
+    <string name="picturepoint">Навигационная точка</string>
+    <string name="windLabel">Ветер:</string>
+    <string name="windmes1">м/с</string>
+    <string name="windmes2">км/ч</string>
+    <string name="search">поиск</string>
+    <string name="search_town">поиск  города</string>
+    <string name="notFound">Город не найден</string>
+    <string name="config">Настройки</string>
+    <string name="castwind">Единица измерения\n ветра</string>
+    <string name="selectConfiguration">Выберите настройки</string>
+    <string name="casttemp">Единица измерения\n температуры</string>
+    <string name="OK">OK</string>
+    <string name="choose_app">Чем открываем карту?</string>
+    <string name="ColorTheme">Цветовая тема</string>
+    <string name="Violet">Фиолетовая</string>
+    <string name="Green">Зеленая</string>
+    <string name="errorGettingData">Недоступны данные с сервера, попробуйте позднее.</string>
+    <string name="forecast">Прогноз</string>
+
+    <string-array name="towns">
+        <item>Ангола  Луанда</item>
+        <item>Аргентина Буэнос-Айрес</item>
+        <item>Бангладеш	Дакка</item>
+        <item>Бразилия	Сан-Паулу</item>
+        <item>Великобритания	Лондон</item>
+        <item>Вьетнам	Хошимин</item>
+        <item>ДР Конго	Киншаса</item>
+        <item>Египет	Каир</item>
+        <item>Индия	Дели</item>
+        <item>Индонезия	Джакарта</item>
+        <item>Ирак	Багдад</item>
+        <item>Иран	Тегеран</item>
+        <item>Испания	Мадрид</item>
+        <item>Канада	Торонто</item>
+        <item>Китай	Шанхай</item>
+        <item>Колумбия	Богота</item>
+        <item>Малайзия	Куала Лумпур</item>
+        <item>Мексика	Мехико</item>
+        <item>Мьянма	Янгон</item>
+        <item>Нигерия	Лагос</item>
+        <item>Пакистан	Карачи</item>
+        <item>Перу	Лима</item>
+        <item>Россия	Москва</item>
+        <item>Россия	Санкт-Петербург</item>
+        <item>Саудов.Аравия	Эр-Рияд</item>
+        <item>Сингапур	Сингапур</item>
+        <item>Судан	Хартум</item>
+        <item>США	Нью-Йорк</item>
+        <item>Таиланд	Бангкок</item>
+        <item>Танзания	Дар-эс-Салам</item>
+        <item>Турция	Стамбул</item>
+        <item>Филиппины	Манила</item>
+        <item>Франция	Париж</item>
+        <item>Чили	Сантьяго</item>
+        <item>Южная Африка	Йоханнесбург</item>
+        <item>Южная Корея	Сеул</item>
+        <item>Япония	Токио</item>
+    </string-array>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_town">Город</string>
+    <string name="menu_forecast">Прогноз</string>
+    <string name="mediumwind">Умеренный ветер</string>
+    <string name="weakwind">Слабый ветер</string>
+    <string name="hardwind">Сильный ветер</string>
+    <string name="storm">Шторм</string>
+    <string name="hurricane">Ураган</string>
+    <string name="action_settings">Настройки</string>
+    <string name="nav_header_desc">Заголовок навигации</string>
+    <string name="action_connect">Написать разработчику</string>
+    <string name="SendEMail">О приложении WeatherForecaster</string>
+    <string name="SendMail">Как отправить письмо?</string>
+</resources>

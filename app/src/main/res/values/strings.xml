@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">Weather Forecaster V2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_weather">Weather</string>
+    <string name="menu_town">Town</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_forecast">Forecast</string>
+
+    <string name="weatherpicture">weather picture</string>
+    <string name="Moscow">Russia Moscow</string>
+    <string name="MoscowPoint" translatable="false">37.620070,55.753630</string>
+    <string name="direction">direction</string>
+    <string name="picturepoint">picturepoint</string>
+    <string name="windLabel">Wind:</string>
+    <string name="windmes1">m/s</string>
+    <string name="windmes2">km/h</string>
+    <string name="tempmes1" translatable="false">°C</string>
+    <string name="tempmes2" translatable="false">K</string>
+    <string name="search">type town</string>
+    <string name="search_town">search town</string>
+    <string name="notFound">Town is not found</string>
+    <string name="config">configuration</string>
+    <string name="castwind">Wind unit</string>
+    <string name="casttemp">Temperature unit</string>
+    <string name="selectConfiguration">Select settings</string>
+    <string name="map_upl" translatable="false">"https://static-maps.yandex.ru/1.x/?ll="</string>
+    <string name="map_size" translatable="false">"&amp;size=450,450&amp;"</string>
+    <string name="map_pres" translatable="false">"&amp;z=10&amp;l=sat,skl"</string>
+    <string name="choose_app">Choose application</string>
+
+    <string-array name="towns">
+        <item>Angola Luanda </item>
+        <item>Argentina Buenos Aires</item>
+        <item>Bangladesh Dhaka </item>
+        <item>Brazil Sao Paulo </item>
+        <item>UK London </item>
+        <item>Vietnam Ho Chi Minh City </item>
+        <item>DR Congo Kinshasa </item>
+        <item>Egypt Cairo </item>
+        <item>India Delhi </item>
+        <item>Indonesia Jakarta </item>
+        <item>Iraq Baghdad </item>
+        <item>Iran Tehran </item>
+        <item>Spain Madrid </item>
+        <item>Canada Toronto </item>
+        <item>China Shanghai </item>
+        <item>Colombia Bogota </item>
+        <item>Malaysia Kuala Lumpur </item>
+        <item>Mexico Mexico City </item>
+        <item>Myanmar Yangon </item>
+        <item>Nigeria Lagos </item>
+        <item>Pakistan Karachi </item>
+        <item>Peru Lima </item>
+        <item>Russia Moscow </item>
+        <item>Russia Saint Petersburg </item>
+        <item>Saudi Arabia Riyadh </item>
+        <item>Singapore Singapore </item>
+        <item>Sudan Khartoum </item>
+        <item>USA New York </item>
+        <item>Thailand Bangkok </item>
+        <item>Tanzania Dar es Salaam </item>
+        <item>Turkey Istanbul </item>
+        <item>Philippines Manila </item>
+        <item>France Paris </item>
+        <item>Chile Santiago </item>
+        <item>South Africa Johannesburg </item>
+        <item>South Korea Seoul </item>
+        <item>Japan Tokyo </item>
+    </string-array>
+
+    <string-array name="points">
+        <item>17.873887,-11.202692</item>
+        <item>-58.4173358,-35.5003318</item>
+        <item>90.4125181,23.810332</item>
+        <item>-46.5648481,-23.6898429</item>
+        <item>-0.1277583,51.5073509</item>
+        <item>106.702573,10.774587</item>
+        <item>15.322222,-4.325</item>
+        <item>31.2357116,30.0444196</item>
+        <item>77.1024902,28.7040592</item>
+        <item>106.829518,-6.2297449</item>
+        <item>44.422,33.325</item>
+        <item>51.423056,35.696111</item>
+        <item>-3.690886,40.406442</item>
+        <item>-79.3831843,43.653226</item>
+        <item>121.4737021,31.2303904</item>
+        <item>-74.072092,4.7109886</item>
+        <item>101.686855,3.139003</item>
+        <item>-99.133208,19.4326077</item>
+        <item>96.1515713,16.8517598</item>
+        <item>3.5407909,6.5232765</item>
+        <item>67.0099388,24.8614622</item>
+        <item>-77.0427891,-12.0463667</item>
+        <item>37.620070,55.753630</item>
+        <item>30.2854058,59.9522227</item>
+        <item>46.6886441,22.2119893</item>
+        <item>103.8509491,1.2800945</item>
+        <item>35.3750879,33.4079118</item>
+        <item>-73.9919092,40.7568285</item>
+        <item>100.539504,13.76575</item>
+        <item>39.2083284,-6.792354</item>
+        <item>28.7664408,41.1634302</item>
+        <item>120.9842195,14.5995124</item>
+        <item>2.3336235,48.8514826</item>
+        <item>-79.2877476,-3.7899241</item>
+        <item>28.0473051,-26.2041028</item>
+        <item>127.0248495,37.575326</item>
+        <item>139.6917064,35.6894875</item>
+    </string-array>
+
+    <string-array name="zones">
+        <item>UTC+1</item>
+        <item>UTC-3</item>
+        <item>UTC+6</item>
+        <item>UTC-3</item>
+        <item>UTC-6</item>
+        <item>UTC+7</item>
+        <item>UTC+1</item>
+        <item>UTC+2</item>
+        <item>UTC+5:30</item>
+        <item>UTC+7</item>
+        <item>UTC+3</item>
+        <item>UTC+3:30</item>
+        <item>UTC+1</item>
+        <item>UTC-5</item>
+        <item>UTC+8</item>
+        <item>UTC-5</item>
+        <item>UTC+8</item>
+        <item>UTC-6</item>
+        <item>UTC+6:30</item>
+        <item>UTC+1</item>
+        <item>UTC+5</item>
+        <item>UTC-5</item>
+        <item>UTC+3</item>
+        <item>UTC+3</item>
+        <item>UTC+3</item>
+        <item>UTC+8</item>
+        <item>UTC+2</item>
+        <item>UTC-5</item>
+        <item>UTC+7</item>
+        <item>UTC+3</item>
+        <item>UTC+3</item>
+        <item>UTC+8</item>
+        <item>UTC+1</item>
+        <item>UTC-3</item>
+        <item>UTC+2</item>
+        <item>UTC+9</item>
+        <item>UTC+9</item>
+    </string-array>
+
+
+    <string name="OK">OK</string>
+    <string name="ColorTheme">Color theme</string>
+    <string name="Violet">Violet</string>
+    <string name="Green">Green</string>
+    <string name="errorGettingData">Error getting data</string>
+    <string name="forecast">forecast</string>
+    <string name="mediumwind">Medium wind</string>
+    <string name="weakwind">Weak wind</string>
+    <string name="hardwind">Hard wind</string>
+    <string name="storm">Storm</string>
+    <string name="hurricane">Hurricane</string>
+    <string name="action_connect">Write to developer</string>
+    <string name="SendEMail">О приложении WeatherForecaster</string>
+    <string name="myEmail" translatable="false">rasmaren@gmail.com</string>
+    <string name="SendMail">Send mail...</string>
+
+
+</resources>
