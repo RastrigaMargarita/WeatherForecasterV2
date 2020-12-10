@@ -80,4 +80,6 @@
     <string name="action_connect">Написать разработчику</string>
     <string name="SendEMail">О приложении WeatherForecaster</string>
     <string name="SendMail">Как отправить письмо?</string>
+    <string name="dialog_message">Изменить город?</string>
+    <string name="no">НЕТ</string>
 </resources>

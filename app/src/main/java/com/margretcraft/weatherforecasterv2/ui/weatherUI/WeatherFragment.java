@@ -1,5 +1,10 @@
 package com.margretcraft.weatherforecasterv2.ui.weatherUI;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +23,7 @@ import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.R;
 import com.margretcraft.weatherforecasterv2.model.jsonmodel.Request;
 import com.margretcraft.weatherforecasterv2.model.jsonmodel.WeatherRequest;
+import com.margretcraft.weatherforecasterv2.ui.CompassView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,6 +38,10 @@ public class WeatherFragment extends Fragment {
     private TextView textViewTown;
     private TextView textViewWind;
     private ImageView imageViewWind;
+    private CompassView compassView;
+    private SensorManager sensorManager;
+    private SensorEventListener sensorEventListener;
+    private Sensor defaultMagneticSensor;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +66,31 @@ public class WeatherFragment extends Fragment {
             }
         });
         weatherViewModel.startGettingWeatherData();
+
+        compassView = rootView.findViewById(R.id.compassView);
+
+
+        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        defaultMagneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+        sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                compassView.setAngle(event.values[0]);
+                compassView.invalidate();
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        if (defaultMagneticSensor != null) {
+
+            compassView.setSensorValid(true);
+            sensorManager.registerListener(sensorEventListener,
+                    defaultMagneticSensor,
+                    SensorManager.SENSOR_DELAY_UI);
+        }
 
         return rootView;
     }
@@ -95,5 +130,18 @@ public class WeatherFragment extends Fragment {
                     imageViewWind, R.string.errorGettingData, BaseTransientBottomBar.LENGTH_LONG).show();
 
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(sensorEventListener);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sensorManager.registerListener(sensorEventListener,  defaultMagneticSensor,
+                SensorManager.SENSOR_DELAY_UI);
     }
 }

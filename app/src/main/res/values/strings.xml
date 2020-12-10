@@ -168,6 +168,8 @@
     <string name="SendEMail">О приложении WeatherForecaster</string>
     <string name="myEmail" translatable="false">rasmaren@gmail.com</string>
     <string name="SendMail">Send mail...</string>
+    <string name="dialog_message">Сhange town?</string>
+    <string name="no">NO</string>
 
 
 </resources>

@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel;
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.model.GetWeather;
 import com.margretcraft.weatherforecasterv2.model.jsonmodel.Request;
-import com.margretcraft.weatherforecasterv2.model.jsonmodel.WeatherRequest;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -33,6 +32,7 @@ public class WeatherViewModel extends ViewModel implements Observer {
 
         (new Thread(getWeather)).start();
     }
+
     public void startGettingForecastData() {
 
         String[] points = ((MainNdActivity) activity).getCurrentTown().getPoint().split(",");
@@ -40,6 +40,7 @@ public class WeatherViewModel extends ViewModel implements Observer {
 
         (new Thread(getWeather)).start();
     }
+
     @Override
     public void update(Observable o, final Object arg) {
         activity.runOnUiThread(() -> weatherRequestMLD.setValue((Request) arg));
