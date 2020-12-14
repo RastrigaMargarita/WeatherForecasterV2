@@ -6,44 +6,81 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
-import com.margretcraft.weatherforecasterv2.model.GetWeather;
-import com.margretcraft.weatherforecasterv2.model.jsonmodel.Request;
+import com.margretcraft.weatherforecasterv2.model.ForecastAdapter;
+import com.margretcraft.weatherforecasterv2.model.gettingData.PrepearingWeatherData;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public class WeatherViewModel extends ViewModel implements Observer {
 
-    private Activity activity;
-    private final MutableLiveData<Request> weatherRequestMLD = new MutableLiveData<>();
+    private MainNdActivity activity;
+    private final MutableLiveData<String> minMaxMLD = new MutableLiveData<>();
+    private final MutableLiveData<String> stateMLD = new MutableLiveData<>();
+    private final MutableLiveData<String> tempMLD = new MutableLiveData<>();
+    private final MutableLiveData<String> windMLD = new MutableLiveData<>();
+    private final MutableLiveData<Integer> windImageMLD = new MutableLiveData<>();
+    private final MutableLiveData<ForecastAdapter> forecastAdapterMLD = new MutableLiveData<>();
 
     public void setActivity(Activity activity) {
-        this.activity = activity;
+        this.activity = (MainNdActivity) activity;
     }
 
-    public MutableLiveData<Request> getWeatherRequestMLD() {
-        return weatherRequestMLD;
+    public MutableLiveData<String> getMinMaxMLD() {
+        return minMaxMLD;
     }
 
-    public void startGettingWeatherData() {
-
-        String[] points = ((MainNdActivity) activity).getCurrentTown().getPoint().split(",");
-        GetWeather getWeather = new GetWeather(this, 0, points[1].substring(0, 5), points[0].substring(0, 5));
-
-        (new Thread(getWeather)).start();
+    public MutableLiveData<String> getStateMLD() {
+        return stateMLD;
     }
 
-    public void startGettingForecastData() {
+    public MutableLiveData<String> getTempMLD() {
+        return tempMLD;
+    }
 
-        String[] points = ((MainNdActivity) activity).getCurrentTown().getPoint().split(",");
-        GetWeather getWeather = new GetWeather(this, 1, points[1].substring(0, 5), points[0].substring(0, 5));
+    public MutableLiveData<String> getWindMLD() {
+        return windMLD;
+    }
 
-        (new Thread(getWeather)).start();
+    public MutableLiveData<Integer> getWindImageMLD() {
+        return windImageMLD;
+    }
+
+    public MutableLiveData<ForecastAdapter> getForecastAdapterMLD() {
+        return forecastAdapterMLD;
+    }
+
+    public void startGettingData(int mod) {
+
+        new Thread(new PrepearingWeatherData(this, mod, activity.getApplicationContext(),
+                activity.getCurrentTown(), activity.isTempmes(), activity.isWindmes(),
+                activity.getDays())).start();
     }
 
     @Override
     public void update(Observable o, final Object arg) {
-        activity.runOnUiThread(() -> weatherRequestMLD.setValue((Request) arg));
-    }
 
+        final PrepearingWeatherData pwd = (PrepearingWeatherData) arg;
+        activity.runOnUiThread(() -> {
+            if (pwd.getMinMax() != null) {
+                minMaxMLD.setValue(pwd.getMinMax());
+            }
+            if (pwd.getState() != null) {
+                stateMLD.setValue(pwd.getState());
+            }
+            if (pwd.getTemp() != null) {
+                tempMLD.setValue(pwd.getTemp());
+            }
+            if (pwd.getWind() != null) {
+                windMLD.setValue(pwd.getWind());
+            }
+            if (pwd.getWindImage() != null) {
+                windImageMLD.setValue(pwd.getWindImage());
+            }
+            if (pwd.getForecastAdapter() != null) {
+                forecastAdapterMLD.setValue(pwd.getForecastAdapter());
+            }
+
+        });
+    }
 }

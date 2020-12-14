@@ -1,19 +1,24 @@
 package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 
+
+import android.os.Parcel;
+
 public class WeatherRequest implements Request{
     private Weather[] weather;
     private Main main;
     private Wind wind;
     private Clouds clouds;
     private String name;
-    private transient boolean gettingSuccess;
 
-    public boolean isGettingSuccess() {
-        return gettingSuccess;
+    public WeatherRequest() {
     }
 
-    public void setGettingSuccess(boolean gettingSuccess) {
-        this.gettingSuccess = gettingSuccess;
+    public WeatherRequest(Parcel in) {
+        weather = in.createTypedArray(Weather.CREATOR);
+        main = in.readParcelable(Main.class.getClassLoader());
+        wind = in.readParcelable(Wind.class.getClassLoader());
+        clouds = in.readParcelable(Clouds.class.getClassLoader());
+        name = in.readString();
     }
 
     public Weather[] getWeather() {
@@ -56,4 +61,30 @@ public class WeatherRequest implements Request{
         this.name = name;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+   public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeTypedArray(weather, 0);
+        dest.writeParcelable(main,0);
+        dest.writeParcelable(wind,0);
+        dest.writeParcelable(clouds,0);
+        dest.writeString(name);
+    }
+
+    public static final Creator<WeatherRequest> CREATOR = new Creator<WeatherRequest>() {
+        @Override
+        public WeatherRequest createFromParcel(Parcel in) {
+            return new WeatherRequest(in);
+        }
+
+        @Override
+        public WeatherRequest[] newArray(int size) {
+            return new WeatherRequest[size];
+        }
+    };
 }

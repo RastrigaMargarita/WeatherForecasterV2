@@ -1,4 +1,4 @@
-package com.margretcraft.weatherforecasterv2.model;
+package com.margretcraft.weatherforecasterv2.model.gettingData;
 
 
 import com.google.gson.Gson;
@@ -64,27 +64,14 @@ public class GetWeather extends Observable implements Runnable {
             Gson gson = new Gson();
             if (mod == 0) {
                 WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
-                weatherRequest.setGettingSuccess(true);
                 observer.update(this, weatherRequest);
             } else {
-
                 ListRequest listRequest = gson.fromJson(result, ListRequest.class);
-                listRequest.setGettingSuccess(true);
                 observer.update(this, listRequest);
-
             }
             in.close();
 
         } catch (Exception e) {
-            if (mod == 0) {
-                WeatherRequest weatherRequest = new WeatherRequest();
-                weatherRequest.setGettingSuccess(false);
-                observer.update(this, weatherRequest);
-            } else {
-                ListRequest listRequest = new ListRequest();
-                listRequest.setGettingSuccess(true);
-                observer.update(this, listRequest);
-            }
             e.printStackTrace();
         } finally {
             if (null != urlConnection) {
