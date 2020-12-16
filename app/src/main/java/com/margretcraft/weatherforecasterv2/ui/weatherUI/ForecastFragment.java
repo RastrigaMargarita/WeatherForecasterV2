@@ -21,7 +21,6 @@ import com.margretcraft.weatherforecasterv2.model.jsonmodel.Request;
 public class ForecastFragment extends Fragment {
     private WeatherViewModel weatherViewModel;
     private RecyclerView recyclerView;
-    private String[] days;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,14 +31,15 @@ public class ForecastFragment extends Fragment {
         weatherViewModel.setActivity(getActivity());
 
         View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
-        weatherViewModel.getWeatherRequestMLD().observe(getViewLifecycleOwner(), new Observer<Request>() {
+
+        weatherViewModel.getForecastAdapterMLD().observe(getViewLifecycleOwner(), new Observer<ForecastAdapter>() {
             @Override
-            public void onChanged(Request s) {
-                updateAdapter((ListRequest) s);
+            public void onChanged(ForecastAdapter s) {
+                recyclerView.setAdapter(s);
             }
         });
 
-        weatherViewModel.startGettingForecastData();
+        weatherViewModel.startGettingData(1);
 
         return rootView;
     }
@@ -48,19 +48,11 @@ public class ForecastFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        days = ((MainNdActivity) getActivity()).getDays();
-
         recyclerView = getActivity().findViewById(R.id.recyclerViewHours);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 
-    public void updateAdapter(ListRequest s) {
-        if (s.isGettingSuccess()) {
-            String mes = ((MainNdActivity) getActivity()).isTempmes() ? getString(R.string.tempmes1) : getString(R.string.tempmes2);
-            recyclerView.setAdapter(new ForecastAdapter(getContext(), mes, days, s.getDaily()));
-        } else {
-        }
-    }
+
 }

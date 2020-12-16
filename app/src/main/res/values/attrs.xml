@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CompassView">
+        <attr name="compass_color" format="color" />
+        <attr name="error_color" format="color" />
+        <attr name="compass_pict" format="integer" />
+    </declare-styleable>
+</resources>
+
+

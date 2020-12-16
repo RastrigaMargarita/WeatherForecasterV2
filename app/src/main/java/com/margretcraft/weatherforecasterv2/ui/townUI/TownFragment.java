@@ -7,15 +7,18 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.google.android.material.snackbar.Snackbar;
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.R;
 import com.margretcraft.weatherforecasterv2.model.TownAdapter;
 import com.margretcraft.weatherforecasterv2.model.TownClass;
+import com.margretcraft.weatherforecasterv2.ui.DialogFragment;
 
 import java.util.ArrayList;
 
@@ -38,6 +41,7 @@ public class TownFragment extends Fragment {
         listViewTown.setHasFixedSize(true);
         listViewTown.setLayoutManager(new LinearLayoutManager(getContext()));
         arrayAdapter = new TownAdapter(listTownClass);
+        DialogFragment dialogFragment = DialogFragment.newInstance();
 
         arrayAdapter.SetOnItemClickListener(new TownAdapter.OnItemClickListener() {
             @Override
@@ -45,7 +49,9 @@ public class TownFragment extends Fragment {
                 searchView.setQuery("", false);
                 searchView.clearFocus();
                 searchView.setIconified(true);
-                ((MainNdActivity) getActivity()).onTownChoose(listTownClass.get(position));
+                dialogFragment.setChoosenTown(listTownClass.get(position));
+                dialogFragment.show(getActivity().getSupportFragmentManager(),
+                        "dialog_fragment");
             }
         });
         listViewTown.setAdapter(arrayAdapter);
