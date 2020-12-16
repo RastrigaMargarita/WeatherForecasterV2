@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.R;
 import com.margretcraft.weatherforecasterv2.ui.CompassView;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -46,6 +47,12 @@ public class WeatherFragment extends Fragment {
         weatherViewModel.setActivity(getActivity());
 
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
+
+        ImageView imageViewFon = rootView.findViewById(R.id.imageViewFon);
+        Picasso.get()
+                .load("https://images.unsplash.com/photo-1483315303845-319eb8428b29?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=762&q=80")
+                .fit()
+                .into(imageViewFon);
 
         Date showDay = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy");
@@ -118,7 +125,6 @@ public class WeatherFragment extends Fragment {
     }
 
 
-
     @Override
     public void onPause() {
         sensorManager.unregisterListener(sensorEventListener);
@@ -128,7 +134,8 @@ public class WeatherFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        sensorManager.registerListener(sensorEventListener,  defaultMagneticSensor,
+        sensorManager.registerListener(sensorEventListener, defaultMagneticSensor,
                 SensorManager.SENSOR_DELAY_UI);
     }
+
 }

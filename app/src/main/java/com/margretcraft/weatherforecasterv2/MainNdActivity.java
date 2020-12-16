@@ -1,12 +1,7 @@
 package com.margretcraft.weatherforecasterv2;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +18,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.margretcraft.weatherforecasterv2.model.TownClass;
-import com.margretcraft.weatherforecasterv2.model.gettingData.GettingDataService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

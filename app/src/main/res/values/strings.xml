@@ -170,6 +170,8 @@
     <string name="SendMail">Send mail...</string>
     <string name="dialog_message">Сhange town?</string>
     <string name="no">NO</string>
+    <string name="error">Server connecting error. Try later please.</string>
+
 
 
 </resources>

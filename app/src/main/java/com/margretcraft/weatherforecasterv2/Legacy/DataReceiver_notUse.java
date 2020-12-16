@@ -1,11 +1,13 @@
-package com.margretcraft.weatherforecasterv2.model.gettingData;
+package com.margretcraft.weatherforecasterv2.Legacy;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class DataReceiver extends BroadcastReceiver {
-    public DataReceiver() {
+import com.margretcraft.weatherforecasterv2.model.gettingData.PrepearingWeatherData;
+
+public class DataReceiver_notUse extends BroadcastReceiver {
+    public DataReceiver_notUse() {
     }
 
     public void setObserver(PrepearingWeatherData observer) {

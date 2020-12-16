@@ -3,10 +3,16 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+
 public class Daily implements Parcelable {
+    @Expose
     private Temp temp;
+    @Expose
     private double wind_speed;
+    @Expose
     private int wind_deg;
+    @Expose
     private Weather[] weather;
 
     protected Daily(Parcel in) {

@@ -82,4 +82,5 @@
     <string name="SendMail">Как отправить письмо?</string>
     <string name="dialog_message">Изменить город?</string>
     <string name="no">НЕТ</string>
+    <string name="error">Проблема с подключением к серверу, попробуйте позднее</string>
 </resources>
