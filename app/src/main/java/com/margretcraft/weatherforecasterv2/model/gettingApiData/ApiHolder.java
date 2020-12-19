@@ -1,4 +1,4 @@
-package com.margretcraft.weatherforecasterv2.model.gettingData;
+package com.margretcraft.weatherforecasterv2.model.gettingApiData;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;

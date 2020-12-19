@@ -17,6 +17,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.margretcraft.weatherforecasterv2.dao.History;
+import com.margretcraft.weatherforecasterv2.dao.HistoryDAO;
 import com.margretcraft.weatherforecasterv2.model.TownClass;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +36,9 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
     private SharedPreferences sharedPref;
 
     private AppBarConfiguration mAppBarConfiguration;
+    private HistoryDAO historyDAO;
+    private Date showDay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,7 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
             tempmes = savedInstanceState.getBoolean("temp");
         }
 
-        Date showDay = new Date();
+        showDay = new Date();
         SimpleDateFormat sdfOneDay = new SimpleDateFormat("dd.MM", Locale.getDefault());
 
         days = new String[7];
@@ -84,7 +89,7 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         }
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_weather, R.id.nav_forecast, R.id.nav_town, R.id.nav_settings)
+                R.id.nav_weather, R.id.nav_forecast, R.id.nav_town, R.id.nav_settings, R.id.nav_history)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -92,6 +97,9 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        historyDAO = App.getHistoryDAO();
+
 
     }
 
@@ -209,6 +217,9 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         } else if (key.equals("tempmes")) {
             tempmes = b;
         }
-        ;
+    }
+
+    public void writeHistory(float temp) {
+        historyDAO.insertHistoryRecord(new History(showDay.getTime(), temp, currentTown.getName()));
     }
 }

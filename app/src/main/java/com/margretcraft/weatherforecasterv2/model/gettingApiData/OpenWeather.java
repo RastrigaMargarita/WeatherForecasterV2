@@ -1,4 +1,4 @@
-package com.margretcraft.weatherforecasterv2.model.gettingData;
+package com.margretcraft.weatherforecasterv2.model.gettingApiData;
 
 import com.margretcraft.weatherforecasterv2.model.jsonmodel.ListRequest;
 import com.margretcraft.weatherforecasterv2.model.jsonmodel.WeatherRequest;

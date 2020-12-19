@@ -16,12 +16,12 @@ import com.margretcraft.weatherforecasterv2.model.jsonmodel.Daily;
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.HoursHolder> {
     private String[] days;
     private Daily[] temps;
-    private String mes;
+    private boolean tempmes;
     private LayoutInflater inflater;
 
-    public ForecastAdapter(Context context, String mes, String[] days, Daily[] temps) {
+    public ForecastAdapter(Context context, boolean tempmes, String[] days, Daily[] temps) {
         inflater = LayoutInflater.from(context);
-        this.mes = mes;
+        this.tempmes = tempmes;
         this.days = days;
         this.temps = temps;
     }
@@ -33,14 +33,14 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.HoursH
     @Override
     public void onBindViewHolder(@NonNull HoursHolder holder, int position) {
         if (temps != null) {
-            if (mes.equals(inflater.getContext().getString(R.string.tempmes1))) {
+            if (tempmes) {
                 holder.setData(days[position],
-                        String.format("   %d" + mes, Math.round(temps[position].getTemp().getDay() - inflater.getContext().getResources().getInteger(R.integer.transferT))),
+                        String.format("   %d" + inflater.getContext().getString(R.string.tempmes1), Math.round(temps[position].getTemp().getDay() - inflater.getContext().getResources().getInteger(R.integer.transferT))),
                         getWindPower(temps[position].getWind_speed()),
                         temps[position].getWeathers()[0].getDescription());
             } else {
                 holder.setData(days[position],
-                        String.format("   %.2f" + mes, temps[position].getTemp().getDay()),
+                        String.format("   %.2f" + inflater.getContext().getString(R.string.tempmes2), temps[position].getTemp().getDay()),
                         getWindPower(temps[position].getWind_speed()),
                         temps[position].getWeathers()[0].getDescription());
             }

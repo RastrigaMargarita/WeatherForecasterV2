@@ -28,4 +28,9 @@
         android:name="com.margretcraft.weatherforecasterv2.ui.settingsUI.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.margretcraft.weatherforecasterv2.ui.historyUI.HistoryFragment"
+        android:label="@string/menu_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.margretcraft.weatherforecasterv2.Legacy;
+package com.margretcraft.weatherforecasterv2.legacy;
 
 
 import com.google.gson.Gson;
