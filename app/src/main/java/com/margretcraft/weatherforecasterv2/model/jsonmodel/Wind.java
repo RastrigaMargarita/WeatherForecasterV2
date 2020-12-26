@@ -3,8 +3,12 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+
 public class Wind implements Parcelable {
+    @Expose
     private double speed;
+    @Expose
     private int deg;
 
     protected Wind(Parcel in) {

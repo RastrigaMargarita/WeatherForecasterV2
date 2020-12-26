@@ -70,6 +70,7 @@
     <string name="menu_settings">Настройки</string>
     <string name="menu_town">Город</string>
     <string name="menu_forecast">Прогноз</string>
+    <string name="menu_history">История наблюдений</string>
     <string name="mediumwind">Умеренный ветер</string>
     <string name="weakwind">Слабый ветер</string>
     <string name="hardwind">Сильный ветер</string>
@@ -82,4 +83,7 @@
     <string name="SendMail">Как отправить письмо?</string>
     <string name="dialog_message">Изменить город?</string>
     <string name="no">НЕТ</string>
+    <string name="error">Проблема с подключением к серверу, попробуйте позднее</string>
+    <string name="item_delete">delete</string>
+
 </resources>

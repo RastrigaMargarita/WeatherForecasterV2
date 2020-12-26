@@ -3,11 +3,18 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 
 import android.os.Parcel;
 
+import com.google.gson.annotations.Expose;
+
 public class WeatherRequest implements Request{
+    @Expose
     private Weather[] weather;
+    @Expose
     private Main main;
+    @Expose
     private Wind wind;
+    @Expose
     private Clouds clouds;
+    @Expose
     private String name;
 
     public WeatherRequest() {

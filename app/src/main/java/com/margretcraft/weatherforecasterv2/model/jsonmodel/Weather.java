@@ -3,8 +3,12 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+
 public class Weather implements Parcelable {
+    @Expose
     private String main;
+    @Expose
     private String description;
 
     protected Weather(Parcel in) {

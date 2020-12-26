@@ -3,8 +3,11 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+
 
 public class Temp implements Parcelable {
+    @Expose
     private double day;
 
     protected Temp(Parcel in) {

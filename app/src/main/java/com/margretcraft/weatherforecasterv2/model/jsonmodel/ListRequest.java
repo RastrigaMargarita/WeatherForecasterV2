@@ -3,7 +3,10 @@ package com.margretcraft.weatherforecasterv2.model.jsonmodel;
 
 import android.os.Parcel;
 
+import com.google.gson.annotations.Expose;
+
 public class ListRequest implements Request {
+    @Expose
     private Daily[] daily;
 
     public ListRequest() {

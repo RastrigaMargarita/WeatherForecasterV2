@@ -40,17 +40,16 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageViewFon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTintMode="screen"
         android:contentDescription=""
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cloud" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewTemperature"
@@ -125,7 +124,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewFon"
         app:layout_constraintStart_toStartOf="parent"
         app:compass_color="@color/colorPrimaryDark"
         app:error_color="@android:color/holo_red_light"

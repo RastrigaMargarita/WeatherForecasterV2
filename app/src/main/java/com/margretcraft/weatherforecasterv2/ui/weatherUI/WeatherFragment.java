@@ -47,6 +47,9 @@ public class WeatherFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
 
+        ImageView imageViewFon = rootView.findViewById(R.id.imageViewFon);
+        imageViewFon.setImageDrawable(getResources().getDrawable(R.drawable.cloud));
+
         Date showDay = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy");
         textViewTown = rootView.findViewById(R.id.TextViewTown);
@@ -59,7 +62,6 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onChanged(String s) {
                 textViewMinMax.setText(s);
-                //   setValues((WeatherRequest) s);
             }
         });
         textViewState = rootView.findViewById(R.id.textViewState);
@@ -117,8 +119,6 @@ public class WeatherFragment extends Fragment {
         return rootView;
     }
 
-
-
     @Override
     public void onPause() {
         sensorManager.unregisterListener(sensorEventListener);
@@ -128,7 +128,8 @@ public class WeatherFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        sensorManager.registerListener(sensorEventListener,  defaultMagneticSensor,
+        sensorManager.registerListener(sensorEventListener, defaultMagneticSensor,
                 SensorManager.SENSOR_DELAY_UI);
     }
+
 }

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.model.ForecastAdapter;
-import com.margretcraft.weatherforecasterv2.model.gettingData.PrepearingWeatherData;
+import com.margretcraft.weatherforecasterv2.model.gettingApiData.PrepearingWeatherData;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -82,5 +82,8 @@ public class WeatherViewModel extends ViewModel implements Observer {
             }
 
         });
+        if (pwd.getTempK()!=0) {
+            activity.writeHistory(pwd.getTempK());
+        }
     }
 }
