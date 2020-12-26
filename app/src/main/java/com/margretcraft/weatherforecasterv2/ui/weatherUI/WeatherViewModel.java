@@ -82,8 +82,9 @@ public class WeatherViewModel extends ViewModel implements Observer {
             }
 
         });
-        if (pwd.getTempK()!=0) {
+        if (pwd.getTempK() != 0) {
             activity.writeHistory(pwd.getTempK());
         }
     }
+
 }

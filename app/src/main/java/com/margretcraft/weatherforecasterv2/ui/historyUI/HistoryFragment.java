@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.R;
-import com.margretcraft.weatherforecasterv2.dao.DataReceiver;
+import com.margretcraft.weatherforecasterv2.broadcast.DataReceiver;
 import com.margretcraft.weatherforecasterv2.model.HistoryAdapter;
 
 public class HistoryFragment extends Fragment {

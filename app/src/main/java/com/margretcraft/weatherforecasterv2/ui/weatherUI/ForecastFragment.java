@@ -12,11 +12,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.margretcraft.weatherforecasterv2.MainNdActivity;
 import com.margretcraft.weatherforecasterv2.R;
 import com.margretcraft.weatherforecasterv2.model.ForecastAdapter;
-import com.margretcraft.weatherforecasterv2.model.jsonmodel.ListRequest;
-import com.margretcraft.weatherforecasterv2.model.jsonmodel.Request;
 
 public class ForecastFragment extends Fragment {
     private WeatherViewModel weatherViewModel;
@@ -51,8 +48,5 @@ public class ForecastFragment extends Fragment {
         recyclerView = getActivity().findViewById(R.id.recyclerViewHours);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
     }
-
-
 }

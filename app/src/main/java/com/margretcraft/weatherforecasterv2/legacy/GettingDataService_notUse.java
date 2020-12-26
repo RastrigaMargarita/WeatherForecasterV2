@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 import javax.net.ssl.HttpsURLConnection;
 
+//не используется
 public class GettingDataService_notUse extends JobIntentService {
     private static final String WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?";
     private static final String WEATHER_7_URL = "https://api.openweathermap.org/data/2.5/onecall?";

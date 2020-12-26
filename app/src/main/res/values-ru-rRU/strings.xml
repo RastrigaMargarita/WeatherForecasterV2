@@ -85,5 +85,6 @@
     <string name="no">НЕТ</string>
     <string name="error">Проблема с подключением к серверу, попробуйте позднее</string>
     <string name="item_delete">delete</string>
+    <string name="battery_low">Батарейка разрядилась, перехожу в экономный режим!</string>
 
 </resources>

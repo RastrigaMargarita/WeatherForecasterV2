@@ -1,7 +1,9 @@
 package com.margretcraft.weatherforecasterv2;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.margretcraft.weatherforecasterv2.broadcast.StateBatteryReceiver;
+import com.margretcraft.weatherforecasterv2.broadcast.StateLanReceiver;
 import com.margretcraft.weatherforecasterv2.dao.History;
 import com.margretcraft.weatherforecasterv2.dao.HistoryDAO;
 import com.margretcraft.weatherforecasterv2.model.TownClass;
@@ -38,7 +43,7 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
     private AppBarConfiguration mAppBarConfiguration;
     private HistoryDAO historyDAO;
     private Date showDay;
-
+    private boolean economy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,9 +105,14 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
 
         historyDAO = App.getHistoryDAO();
 
+        StateBatteryReceiver sbr = new StateBatteryReceiver();
+        sbr.setObserver(this);
+        registerReceiver(sbr, new IntentFilter("android.intent.action.BATTERY_LOW"));
+        StateLanReceiver slr = new StateLanReceiver();
+        slr.setObserver(this);
+        registerReceiver(slr, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -155,6 +165,10 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
 
     public String[] getDays() {
         return days;
+    }
+
+    public boolean isEconomy() {
+        return economy;
     }
 
     public SharedPreferences getSharedPref() {
@@ -221,5 +235,20 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
 
     public void writeHistory(float temp) {
         historyDAO.insertHistoryRecord(new History(showDay.getTime(), temp, currentTown.getName()));
+    }
+
+    public void isBatteryLow() {
+        Snackbar.make(toolbar, R.string.battery_low, Snackbar.LENGTH_LONG).show();
+        economy = true;
+    }
+
+    public void isLanChanged() {
+        ConnectivityManager conMngr = (ConnectivityManager) this.getSystemService(this.CONNECTIVITY_SERVICE);
+
+        if (conMngr.isActiveNetworkMetered()) {
+            Snackbar.make(toolbar, "Нет доступа в сеть, получение данных невозможно", Snackbar.LENGTH_LONG).show();
+        } else {
+            Snackbar.make(toolbar, "Есть подключение к сети, можете обновить данные о погода", Snackbar.LENGTH_LONG).show();
+        }
     }
 }

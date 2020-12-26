@@ -1,10 +1,11 @@
-package com.margretcraft.weatherforecasterv2.dao;
+package com.margretcraft.weatherforecasterv2.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 
+import com.margretcraft.weatherforecasterv2.dao.History;
 import com.margretcraft.weatherforecasterv2.model.HistoryAdapter;
 
 import java.util.Arrays;

@@ -121,15 +121,19 @@ public class WeatherFragment extends Fragment {
 
     @Override
     public void onPause() {
-        sensorManager.unregisterListener(sensorEventListener);
+        try {
+            sensorManager.unregisterListener(sensorEventListener);
+        } catch (Exception e) {
+        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        sensorManager.registerListener(sensorEventListener, defaultMagneticSensor,
-                SensorManager.SENSOR_DELAY_UI);
+        if (!((MainNdActivity) getActivity()).isEconomy()) {
+            sensorManager.registerListener(sensorEventListener, defaultMagneticSensor,
+                    SensorManager.SENSOR_DELAY_UI);
+        }
     }
-
 }
