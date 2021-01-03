@@ -51,6 +51,13 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
 
         sharedPref = getSharedPreferences(getPackageName(), MODE_PRIVATE);
 
+        if (!sharedPref.contains("townPoint")){
+            Intent myIntent = new Intent(MainNdActivity.this, MapsActivity.class);
+            myIntent.putExtra("points", "0.0,0.0");
+            startActivity(myIntent);
+            finish();
+        }
+
         if (sharedPref.getBoolean("theme", true)) {
             setTheme(R.style.AppThemeViolet);
         } else {
@@ -118,7 +125,7 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_nd, menu);
 
-        menu.getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        menu.getItem(2).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -127,6 +134,16 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.SendEMail));
 
                 startActivity(Intent.createChooser(emailIntent, getString(R.string.SendMail)));
+                return true;
+            }
+        });
+        menu.getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent myIntent = new Intent(MainNdActivity.this, MapsActivity.class);
+               myIntent.putExtra("points", currentTown.getPoint());
+                startActivity(myIntent);
+                finish();
                 return true;
             }
         });
@@ -195,13 +212,16 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         navController.navigate(id);
         if (id == R.id.nav_weather) {
             toolbar.getMenu().getItem(0).setVisible(false);
+            toolbar.getMenu().getItem(1).setVisible(false);
             toolbar.setBackground(null);
         } else if (id == R.id.nav_town) {
             toolbar.getMenu().getItem(0).setVisible(true);
+            toolbar.getMenu().getItem(1).setVisible(true);
             toolbar.setBackgroundColor(getColor(R.color.white));
             toolbar.setBackground(getDrawable(R.drawable.sky));
         } else {
             toolbar.getMenu().getItem(0).setVisible(false);
+            toolbar.getMenu().getItem(1).setVisible(false);
             toolbar.setBackgroundColor(getColor(R.color.white));
             toolbar.setBackground(getDrawable(R.drawable.sky));
         }
@@ -213,6 +233,7 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         setCurrentTown(townClass);
         toolbar.setBackground(null);
         toolbar.getMenu().getItem(0).setVisible(false);
+        toolbar.getMenu().getItem(1).setVisible(false);
         navController.navigate(R.id.nav_weather);
 
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -246,9 +267,9 @@ public class MainNdActivity extends AppCompatActivity implements NavigationView.
         ConnectivityManager conMngr = (ConnectivityManager) this.getSystemService(this.CONNECTIVITY_SERVICE);
 
         if (conMngr.isActiveNetworkMetered()) {
-            Snackbar.make(toolbar, "Нет доступа в сеть, получение данных невозможно", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(toolbar, R.string.LanAccessDenied, Snackbar.LENGTH_LONG).show();
         } else {
-            Snackbar.make(toolbar, "Есть подключение к сети, можете обновить данные о погода", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(toolbar, R.string.lanaccessallowed, Snackbar.LENGTH_LONG).show();
         }
     }
 }

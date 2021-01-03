@@ -173,6 +173,13 @@
     <string name="no">NO</string>
     <string name="error">Server connecting error. Try later please.</string>
     <string name="item_delete">delete</string>
-    <string name="battery_low">Батарейка разрядилась, перехожу в экономный режим!</string>
+    <string name="battery_low">Buttery low, economy mode!</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="chooseMapPoint">Point on map</string>
+    <string name="chooseThis">Сhoose this point</string>
+    <string name="NoDataForPoint">No data for this point</string>
+    <string name="LanAccessDenied">Internet access is not available</string>
+    <string name="lanaccessallowed">Internet access is available</string>
+    <string name="findMe">Найти меня</string>
 
 </resources>
