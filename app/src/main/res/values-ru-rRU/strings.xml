@@ -84,6 +84,14 @@
     <string name="dialog_message">Изменить город?</string>
     <string name="no">НЕТ</string>
     <string name="error">Проблема с подключением к серверу, попробуйте позднее</string>
-    <string name="item_delete">delete</string>
+    <string name="item_delete">удалить</string>
+    <string name="battery_low">Батарейка разрядилась, перехожу в экономный режим!</string>
+    <string name="chooseMapPoint">Указать на карте</string>
+    <string name="chooseThis">Выбрать эту точку</string>
+    <string name="NoDataForPoint">Нет данных для этой точки</string>
+    <string name="title_activity_maps" translatable="false">Карта</string>
+    <string name="LanAccessDenied">Нет доступа в сеть, получение данных невозможно</string>
+    <string name="lanaccessallowed">Есть подключение к сети, можете обновить данные о погоде</string>
+    <string name="findMe">Найти меня</string>
 
 </resources>
