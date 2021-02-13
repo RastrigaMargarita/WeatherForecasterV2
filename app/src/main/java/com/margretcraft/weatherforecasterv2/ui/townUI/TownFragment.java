@@ -43,16 +43,13 @@ public class TownFragment extends Fragment {
         arrayAdapter = new TownAdapter(listTownClass);
         DialogFragment dialogFragment = DialogFragment.newInstance();
 
-        arrayAdapter.SetOnItemClickListener(new TownAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                searchView.setQuery("", false);
-                searchView.clearFocus();
-                searchView.setIconified(true);
-                dialogFragment.setChoosenTown(listTownClass.get(position));
-                dialogFragment.show(getActivity().getSupportFragmentManager(),
-                        "dialog_fragment");
-            }
+        arrayAdapter.SetOnItemClickListener((view, position) -> {
+            searchView.setQuery("", false);
+            searchView.clearFocus();
+            searchView.setIconified(true);
+            dialogFragment.setChoosenTown(listTownClass.get(position));
+            dialogFragment.show(getActivity().getSupportFragmentManager(),
+                    "dialog_fragment");
         });
         listViewTown.setAdapter(arrayAdapter);
 
